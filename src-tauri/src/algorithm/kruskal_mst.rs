@@ -72,7 +72,7 @@ impl PartialOrd for Edge {
     }
 }
 
-fn kruskal_find_MST(mut edges: Vec<Edge>, size: usize) -> Graph {
+fn kruskal_find_mst(mut edges: Vec<Edge>, size: usize) -> Graph {
     edges.sort_by(| a, b | {
         if a == b {
             return std::cmp::Ordering::Equal;
@@ -91,7 +91,7 @@ fn kruskal_find_MST(mut edges: Vec<Edge>, size: usize) -> Graph {
         }
     }
 
-    graph
+    todo!()
 }
 
 #[cfg(test)]
