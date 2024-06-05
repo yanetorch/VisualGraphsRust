@@ -1,15 +1,15 @@
 use std::{error::Error, fmt::Display};
 
-pub type Result<T> = core::result::Result<T, ErrorModel>;
+pub type Result<T> = core::result::Result<T, ModelError>;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum ErrorModel {
+pub enum ModelError {
     NotValidNumVertex,
     CantMoveToVertex,
     AlreadyVisited,
 }
 
-impl ErrorModel {
+impl ModelError {
     pub fn message(&self) -> String {
         match self {
             Self::NotValidNumVertex => {
@@ -25,10 +25,11 @@ impl ErrorModel {
     }
 }
 
-impl Display for ErrorModel {
+impl Display for ModelError {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{self:?}")
+        let message = self.message();
+        write!(f, "{message}")
     }
 }
 
-impl Error for ErrorModel {}
+impl Error for ModelError {}

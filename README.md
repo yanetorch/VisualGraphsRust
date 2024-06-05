@@ -8,7 +8,10 @@
     - клиентские функции для фронта /src-tauri/client_functions/
 
 ## Как работает
-Пока непонятно. Для отрисовки графа, [как будто бы это](https://github.com/iVis-at-Bilkent/cytoscape.js-avsdf)
+Пока непонятно. Для отрисовки графа:
+- [cytoscape.js](https://github.com/iVis-at-Bilkent/cytoscape.js-avsdf)
+- [sigma.js](https://www.sigmajs.org/)
+- [vivagraph.js](https://github.com/anvaka/VivaGraphJS)
 
 ## Ход работы:
 - [ ] Научиться рисовать граф на клиенте

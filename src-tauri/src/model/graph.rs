@@ -1,6 +1,6 @@
 //! Предоставляет сущность графа
 
-use super::error::{ErrorModel, Result};
+use super::error::{ModelError, Result};
 
 /// # Структура графа
 /// Все верщины должны иметь значения в диапазоне [0, n),
@@ -21,7 +21,7 @@ impl Graph {
 
     pub fn add_edge(&mut self, v: usize, u: usize) -> Result<()> {
         if v >= self.inner.len() || u >= self.inner.len() {
-            return Err(ErrorModel::NotValidNumVertex);
+            return Err(ModelError::NotValidNumVertex);
         }
         self.inner[v].push(u);
 

@@ -3,7 +3,7 @@
 
 use std::mem::swap;
 
-use super::error::{ErrorModel, Result};
+use super::error::{ModelError, Result};
 use super::graph::Graph;
 
 #[derive(Debug)]
@@ -20,7 +20,7 @@ impl<'a> Vertex<'a> {
     /// Проверка, что номер вершины валиден
     fn is_valid_num_vertex_graph(num_vertex: usize, graph: &Graph) -> Result<()> {
         if num_vertex >= graph.get_ref_inner().len() {
-            return Err(ErrorModel::NotValidNumVertex);
+            return Err(ModelError::NotValidNumVertex);
         }
         Ok(())
     }
@@ -87,10 +87,10 @@ impl<'a> VertexDFS<'a> {
     pub fn step_to(&mut self, num_vertex: usize) -> Result<()> {
         self.vertex.is_valid_num_vertex(num_vertex)?;
         if !self.is_next(num_vertex) {
-            return Err(ErrorModel::CantMoveToVertex);
+            return Err(ModelError::CantMoveToVertex);
         }
         if self.vertex.visits[num_vertex] {
-            return Err(ErrorModel::AlreadyVisited);
+            return Err(ModelError::AlreadyVisited);
         }
         self.vertex.current = num_vertex;
         self.vertex.visits[num_vertex] = true;
@@ -149,10 +149,10 @@ impl<'a> VertexBFS<'a> {
     pub fn step_to(&mut self, num_vertex: usize) -> Result<()> {
         self.vertex.is_valid_num_vertex(num_vertex)?;
         if !self.is_next(num_vertex) {
-            return Err(ErrorModel::CantMoveToVertex);
+            return Err(ModelError::CantMoveToVertex);
         }
         if self.vertex.visits[num_vertex] {
-            return Err(ErrorModel::AlreadyVisited);
+            return Err(ModelError::AlreadyVisited);
         }
 
         self.vertex.current = num_vertex;
