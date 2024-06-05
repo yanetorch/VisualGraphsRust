@@ -12,19 +12,19 @@ struct DSU {
 
 impl DSU {
     fn new(size: usize) -> Self {
-        let siz = vec![ 1; size ];
-        
+        let siz = vec![1; size];
+
         let mut f = Vec::new();
 
         {
             let mut p = 0;
-            f.resize_with(size, || { p += 1; p - 1 });
+            f.resize_with(size, || {
+                p += 1;
+                p - 1
+            });
         }
 
-        DSU {
-            siz,
-            f,
-        }
+        DSU { siz, f }
     }
 
     fn find(&mut self, mut x: usize) -> usize {
@@ -73,7 +73,7 @@ impl PartialOrd for Edge {
 }
 
 fn kruskal_find_mst(mut edges: Vec<Edge>, size: usize) -> Graph {
-    edges.sort_by(| a, b | {
+    edges.sort_by(|a, b| {
         if a == b {
             return std::cmp::Ordering::Equal;
         }
@@ -102,11 +102,14 @@ mod tests {
     fn test_how_iota_init_vector() {
         let mut f = Vec::new();
         let mut p = 0usize;
-        f.resize_with(15, || { p += 1; p - 1 });
+        f.resize_with(15, || {
+            p += 1;
+            p - 1
+        });
         let mut ok = true;
         for (i, value) in f.into_iter().enumerate() {
             ok &= value == i;
         }
-        assert!(ok);        
+        assert!(ok);
     }
 }

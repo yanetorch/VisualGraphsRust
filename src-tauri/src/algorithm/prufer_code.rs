@@ -9,14 +9,16 @@ pub struct PruferCode {
 
 impl PruferCode {
     pub fn new(graph: Graph) -> Self {
-        PruferCode { code: incode_prufer( graph.get_ref_inner() ) }
+        PruferCode {
+            code: incode_prufer(graph.get_ref_inner()),
+        }
     }
 }
 
-fn incode_prufer( v: &Vec<Vec<usize>> ) -> Vec<usize> {
+fn incode_prufer(v: &Vec<Vec<usize>>) -> Vec<usize> {
     todo!()
 }
 
-fn decode_prufer( code: &Vec<usize> ) -> Vec<(usize, usize)> {
+fn decode_prufer(code: &Vec<usize>) -> Vec<(usize, usize)> {
     todo!()
 }

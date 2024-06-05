@@ -7,6 +7,7 @@ pub enum ModelError {
     NotValidNumVertex,
     CantMoveToVertex,
     AlreadyVisited,
+    FailParse(String),
 }
 
 impl ModelError {
@@ -20,6 +21,9 @@ impl ModelError {
             }
             Self::AlreadyVisited => {
                 format!("Нельзя перейти в уже посещенную вершину.")
+            }
+            Self::FailParse(message) => {
+                format!("Ошибка парсинга: '{message}'.")
             }
         }
     }

@@ -15,9 +15,10 @@ mod model {
 
 /// Какие-то фундаментальные алгоритмы для графов
 mod algorithm {
-    mod dijkstra;
-    mod kruskal_mst;
-    mod prufer_code;
+    pub mod dfs;
+    pub mod dijkstra;
+    pub mod kruskal_mst;
+    pub mod prufer_code;
 }
 
 pub fn main() {
